@@ -25,9 +25,12 @@ def find_version(*file_paths):
     raise RuntimeError("Unable to find version string.")
 
 
-setup(name='pypidemo',
+PACKAGE_NAME = 'pypidemo'
+
+
+setup(name=PACKAGE_NAME,
       version=find_version('pypidemo/__init__.py'),
-      description=('pypidemo'),
+      description=PACKAGE_NAME,
       long_description=DOC,
       author='hustcc',
       author_email='i@hust.cc',
@@ -51,10 +54,10 @@ setup(name='pypidemo',
         'Programming Language :: Python :: 3.6',
         'Topic :: Utilities'
       ],
-      keywords='pypidemo, hustcc, github',
+      keywords='pypidemo, hustcc, github, %s' % PACKAGE_NAME,
       include_package_data=True,
       zip_safe=False,
       packages=['pypidemo'],
       entry_points={
-        'console_scripts': ['pypidemo=pypidemo.cli:run']
+        'console_scripts': ['%s=pypidemo.cli:run' % PACKAGE_NAME]
       })
